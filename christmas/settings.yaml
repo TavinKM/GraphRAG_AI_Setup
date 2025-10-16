@@ -3,33 +3,30 @@
 
 ### LLM settings ###
 ## There are a number of settings to tune the threading and token limits for LLM calls - check the docs.
-
+encoding_model: cl100k_base
 models:
   default_chat_model:
     type: chat
-    model_provider: openai
-    auth_type: api_key # or azure_managed_identity
-    api_key: ${GRAPHRAG_API_KEY} # set this in the generated .env file, or remove if managed identity
-    model: gpt-4-turbo-preview
-    # api_base: https://<instance>.openai.azure.com
-    # api_version: 2024-05-01-preview
-    model_supports_json: true # recommended if this is available for your model.
+    model: llama3:latest
+    api_base: http://localhost:11434
+    api_key: ollama
+    model_provider: ollama
+    encoding_model: cl100k_base
     concurrent_requests: 25
-    async_mode: threaded # or asyncio
+    async_mode: threaded
     retry_strategy: exponential_backoff
     max_retries: 10
     tokens_per_minute: null
     requests_per_minute: null
   default_embedding_model:
     type: embedding
-    model_provider: openai
-    auth_type: api_key
-    api_key: ${GRAPHRAG_API_KEY}
-    model: text-embedding-3-small
-    # api_base: https://<instance>.openai.azure.com
-    # api_version: 2024-05-01-preview
+    model: embeddinggemma:300m
+    api_base: http://localhost:11434
+    api_key: ollama
+    model_provider: ollama
+    encoding_model: cl100k_base
     concurrent_requests: 25
-    async_mode: threaded # or asyncio
+    async_mode: threaded
     retry_strategy: exponential_backoff
     max_retries: 10
     tokens_per_minute: null
