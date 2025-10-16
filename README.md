@@ -1,2 +1,2 @@
 # GraphRAG_AI_Setup
-Setting up and testing Microsoft GraphRAG software with the Christmas Carol Book
+Setting up and testing the Microsoft GraphRAG software with the Christmas Carol Book run locally using Ollama API's
